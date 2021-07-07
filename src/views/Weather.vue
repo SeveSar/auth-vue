@@ -89,8 +89,7 @@ export default {
 </script>
 <style lang="scss">
 .weather {
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
   padding-top: 94px;
   &__title {
     font-size: 30px;

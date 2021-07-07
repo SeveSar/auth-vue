@@ -45,7 +45,6 @@ const userStore = {
       try {
         dispatch('setLoading', true, { root: true })
         const res = await firebase.auth().signInWithEmailAndPassword(email, password)
-        console.log(res)
         commit('setUser', res.user.uid)
         dispatch('setAlert', {
           type: 'agreed',

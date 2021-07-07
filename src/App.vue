@@ -2,9 +2,7 @@
   <Navbar></Navbar>
   <div class="intro">
     <div class="container">
-      <div class="intro__inner">
-        <router-view></router-view>
-      </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -16,11 +14,8 @@ export default {
     Navbar
   },
   data () {
-    return {
-
-    }
+    return {}
   }
-
 }
 </script>
 <style lang="scss">
@@ -30,16 +25,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
-  height: 100%;
   background-color: #535fe6;
   position: relative;
 }
-html {
-  height: 100%;
-}
+
 body {
   margin: 0;
-  height: 100%;
 }
 .container {
   max-width: 1250px;
@@ -49,15 +40,6 @@ body {
 }
 .intro {
   height: 100%;
-  .container {
-    height: 100%;
-  }
-  &__inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+
 }
 </style>

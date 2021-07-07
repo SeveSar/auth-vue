@@ -1,89 +1,93 @@
 <template>
-  <Notification />
-  <div class="card">
-    <form class="form" action="/">
-      <h4 class="form__title">Registration</h4>
-      <div class="form__group">
-        <label for="username">Username</label>
-        <input
-          class="form__control"
-          ref="username"
-          v-model="formData.username"
-          type="text"
-          id="username"
-          @focus="clearNotice"
-          :class="{ error: v$.formData.username.$error }"
-        />
-        <small class="form__notice" v-if="v$.formData.username.$error">{{
-          v$.formData.username.required.$invalid
-            ? "Username is required"
-            : "Min symbols is 3"
-        }}</small>
-      </div>
-      <div class="form__group">
-        <label for="email">Email</label>
-        <input
-          class="form__control"
-          v-model="formData.email"
-          type="email"
-          id="email"
-          @focus="clearNotice"
-          :class="{ error: v$.formData.email.$error }"
-        />
-        <small class="form__notice" v-if="v$.formData.email.$error">
-          {{
-            v$.formData.email.required.$invalid
-              ? "E-mail is required"
-              : "Type correct e-mail"
-          }}
-        </small>
-      </div>
-      <div class="form__group">
-        <label for="password">Password</label>
-        <input
-          class="form__control"
-          type="password"
-          v-model="formData.passwords.password"
-          id="password"
-          :class="{ error: v$.formData.passwords.password.$error }"
-          @focus="clearNotice"
-        />
-        <small
-          class="form__notice"
-          v-if="v$.formData.passwords.password.$error"
-          >{{
-            v$.formData.passwords.password.required.$invalid
-              ? "Password is required"
-              : "Min symbols is 7"
-          }}</small
-        >
-      </div>
-      <div class="form__group">
-        <label for="password">Confirm the password</label>
-        <input
-          class="form__control"
-          type="password"
-          v-model="formData.passwords.confirm"
-          id="confirm-password"
-          :class="{ error: v$.formData.passwords.confirm.$error }"
-          @focus="clearNotice"
-        />
-        <small class="form__notice" v-if="v$.formData.passwords.confirm.$error"
-          >Passwords aren't similar</small
-        >
-      </div>
-      <div class="form__actions">
-        <button class="btn" type="submit" @click.prevent="submit">
-          {{ changeText }}
-        </button>
-        <div class="form__to">
-          <span>Do you have an account?</span>
-          <router-link class="link" :to="{ name: 'sign-in' }"
-            >Sign In</router-link
+  <div class="auth">
+    <Notification />
+    <div class="card">
+      <form class="form" action="/">
+        <h4 class="form__title">Registration</h4>
+        <div class="form__group">
+          <label for="username">Username</label>
+          <input
+            class="form__control"
+            ref="username"
+            v-model="formData.username"
+            type="text"
+            id="username"
+            @focus="clearNotice"
+            :class="{ error: v$.formData.username.$error }"
+          />
+          <small class="form__notice" v-if="v$.formData.username.$error">{{
+            v$.formData.username.required.$invalid
+              ? "Username is required"
+              : "Min symbols is 3"
+          }}</small>
+        </div>
+        <div class="form__group">
+          <label for="email">Email</label>
+          <input
+            class="form__control"
+            v-model="formData.email"
+            type="email"
+            id="email"
+            @focus="clearNotice"
+            :class="{ error: v$.formData.email.$error }"
+          />
+          <small class="form__notice" v-if="v$.formData.email.$error">
+            {{
+              v$.formData.email.required.$invalid
+                ? "E-mail is required"
+                : "Type correct e-mail"
+            }}
+          </small>
+        </div>
+        <div class="form__group">
+          <label for="password">Password</label>
+          <input
+            class="form__control"
+            type="password"
+            v-model="formData.passwords.password"
+            id="password"
+            :class="{ error: v$.formData.passwords.password.$error }"
+            @focus="clearNotice"
+          />
+          <small
+            class="form__notice"
+            v-if="v$.formData.passwords.password.$error"
+            >{{
+              v$.formData.passwords.password.required.$invalid
+                ? "Password is required"
+                : "Min symbols is 7"
+            }}</small
           >
         </div>
-      </div>
-    </form>
+        <div class="form__group">
+          <label for="password">Confirm the password</label>
+          <input
+            class="form__control"
+            type="password"
+            v-model="formData.passwords.confirm"
+            id="confirm-password"
+            :class="{ error: v$.formData.passwords.confirm.$error }"
+            @focus="clearNotice"
+          />
+          <small
+            class="form__notice"
+            v-if="v$.formData.passwords.confirm.$error"
+            >Passwords aren't similar</small
+          >
+        </div>
+        <div class="form__actions">
+          <button class="btn" type="submit" @click.prevent="submit">
+            {{ changeText }}
+          </button>
+          <div class="form__to">
+            <span>Do you have an account?</span>
+            <router-link class="link" :to="{ name: 'sign-in' }"
+              >Sign In</router-link
+            >
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 <script>
@@ -144,12 +148,13 @@ export default {
 </script>
 <style lang="scss">
 .auth {
-  height: 100%;
+  height: 100vh;
+  display: flex;
 }
 .card {
   max-width: 500px;
   width: 100%;
-  margin: 0 auto;
+  margin: auto;
   padding: 30px;
   background-color: #1c1e21;
   border-radius: 10px;

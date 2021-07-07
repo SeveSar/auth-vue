@@ -150,11 +150,13 @@ export default {
 .auth {
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .card {
   max-width: 500px;
   width: 100%;
-  margin: auto;
   padding: 30px;
   background-color: #1c1e21;
   border-radius: 10px;
